@@ -1,3 +1,9 @@
+if(process.env.NODE_ENV  = "production"){
+    require("dotenv").config();
+}
+
+console.log(process.env.SECRET);
+
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -77,7 +83,7 @@ app.use((req,res,next)=>{
 
 
 app.use("/listings",listingRouter);
-app.use("/listings/:id/review",reviewRouter);
+app.use("/listings/:id/reviews",reviewRouter);
 app.use("/",userRouter);
 
 
